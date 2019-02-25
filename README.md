@@ -5,6 +5,13 @@
 For the purposes of this project I will be using the following tutorial:
 https://www.pyimagesearch.com/2018/09/24/opencv-face-recognition/
 
+### The following python modules are required:
+opencv-python
+imutils
+scikit-learn
+numpy
+
+
 ### Process:
 1. CD to dataset.
 2. Create the dataset for a person
