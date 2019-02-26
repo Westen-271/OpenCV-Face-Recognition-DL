@@ -41,7 +41,17 @@ recognizer = pickle.loads(open(args["recognizer"], "rb").read())
 le = pickle.loads(open(args["le"], "rb").read())
 
 # Load the image and resize it to width of 600 pixels.
-video = cv2.VideoCapture(1)
+configPath = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", 'OpenCV-Face-Recognition-DL\\config'))
+videoConfigFile = open(configPath + '\\video_capture_device.cfg', 'r')
+
+videoCaptureDevice = videoConfigFile.read()
+
+if not videoCaptureDevice.isnumeric():
+    videoCaptureDevice = 0
+else:
+    videoCaptureDevice = int(videoCaptureDevice)
+    
+video = cv2.VideoCapture(videoCaptureDevice)
 
 while True:
     ret, frame = video.read()

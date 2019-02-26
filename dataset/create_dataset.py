@@ -14,11 +14,8 @@ parser.add_argument("-o", "--output", required = True,
 
 args = vars(parser.parse_args())
 
-configPath = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", 'config/'))
+configPath = os.path.dirname(os.path.realpath(__file__))
 videoConfigFile = open(configPath + '\\video_capture_device.cfg', 'r')
-
-print("Video capture path: " )
-print(configPath + "\\video_capture_device.cfg")
 
 videoCaptureDevice = videoConfigFile.read()
 
