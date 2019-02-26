@@ -21,9 +21,10 @@ https://www.pyimagesearch.com/2018/09/24/opencv-face-recognition/
 3. Create the dataset for a person:<br>
     python create_dataset --cascade [CASCADE NAME HERE] (e.g. haarcascade_frontalface_default.xml) --output [name of folder, e.g. Jack]
 4. Exit dataset - CD to root directory of the project.
-5. Extract the embeddings from the new dataset:<br>
+~~5. Extract the embeddings from the new dataset:<br>
     python extract_embeddings.py --dataset dataset --embeddings output/embeddings.pickle --detector detection_model --embedding-model openface_nn4.small2.v1.t7
 6. Train the model with the new embeddings:<br>
-    python train_model.py --embeddings output/embeddings.pickle --recognizer output/recognizer.pickle --le output/le.pickle
-7. Run the recognizer: <br>
+    python train_model.py --embeddings output/embeddings.pickle --recognizer output/recognizer.pickle --le output/le.pickle~~
+5. Run <i>'process_data.bat'</i> to extract the embeddings and then train the model.
+6. Run the recognizer: <br>
     python recognize.py --detector detection_model --embedding-model openface_nn4.small2.v1.t7 --recognizer output/recognizer.pickle --le output/le.pickle
