@@ -14,7 +14,20 @@ parser.add_argument("-o", "--output", required = True,
 
 args = vars(parser.parse_args())
 
-video = cv2.VideoCapture(0)
+configPath = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", 'config/'))
+videoConfigFile = open(configPath + '\\video_capture_device.cfg', 'r')
+
+print("Video capture path: " )
+print(configPath + "\\video_capture_device.cfg")
+
+videoCaptureDevice = videoConfigFile.read()
+
+if not videoCaptureDevice.isnumeric():
+    videoCaptureDevice = 0
+else:
+    videoCaptureDevice = int(videoCaptureDevice)
+    
+video = cv2.VideoCapture(videoCaptureDevice)
 
 # Get the path of the cascade file that has been requested.
 cascade_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", 'cascades/'))

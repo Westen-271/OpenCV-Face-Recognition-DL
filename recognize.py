@@ -41,7 +41,7 @@ recognizer = pickle.loads(open(args["recognizer"], "rb").read())
 le = pickle.loads(open(args["le"], "rb").read())
 
 # Load the image and resize it to width of 600 pixels.
-video = cv2.VideoCapture(0)
+video = cv2.VideoCapture(1)
 
 while True:
     ret, frame = video.read()
