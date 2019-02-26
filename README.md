@@ -5,6 +5,13 @@
 For the purposes of this project I will be using the following tutorial:
 https://www.pyimagesearch.com/2018/09/24/opencv-face-recognition/
 
+### The following python modules are required:
+opencv-python
+imutils
+scikit-learn
+numpy
+
+
 ### Process:
 1. Change the value in 'video_capture_device.txt' to the number that corresponds to the capture device you wish to use.<br>
 <i>For example, main webcam or first connected device is 0, front-facing camera is 1...</i>
