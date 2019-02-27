@@ -75,6 +75,7 @@ while True:
         confidence = detections[0, 0, i, 2]
      
         # filter out weak detections
+
         if confidence > args["confidence"]:
                 # compute the (x, y)-coordinates of the bounding box for the
                 # face
@@ -100,11 +101,16 @@ while True:
                 name = le.classes_[j]
 
                 text = "{}: {:.2f}%".format(name, proba * 100)
-                y = startY - 10 if startY - 10 > 10 else startY + 10
-                cv2.rectangle(image, (startX, startY), (endX, endY),
-                        (0, 0, 255), 2)
-                cv2.putText(image, text, (startX, y),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 255), 1)
+                
+                if proba * 100 < 60:
+                    text = ""
+                else:
+                    
+                    y = startY - 10 if startY - 10 > 10 else startY + 10
+                    cv2.rectangle(image, (startX, startY), (endX, endY),
+                            (0, 0, 255), 2)
+                    cv2.putText(image, text, (startX, y),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 255), 1)
  
     # show the output image
     cv2.imshow("Image", image)
